@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asyiknya Matematika Kelas 10 - Semester 2</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-animation">
+            <div class="math-symbols">
+                <span>∫</span>
+                <span>∑</span>
+                <span>π</span>
+                <span>√</span>
+                <span>∞</span>
+            </div>
+            <h2>Loading Materi Seru...</h2>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-calculator"></i>
+                <span>MathFun</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#spldv" class="nav-link">SPLDV</a></li>
+                <li><a href="#kuadrat" class="nav-link">Fungsi Kuadrat</a></li>
+                <li><a href="#statistika" class="nav-link">Statistika</a></li>
+                <li><a href="#peluang" class="nav-link">Peluang</a></li>
+            </ul>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <button class="theme-toggle" id="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    Asyiknya Belajar <span class="highlight">Matematika</span> 
+                    <br>Kelas 10 Semester 2
+                </h1>
+                <p class="hero-subtitle">
+                    Santai, Mudah, dan Penuh Analogi! Jelajahi dunia matematika dengan cara yang menyenangkan dan interaktif.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('spldv')">
+                        <i class="fas fa-play"></i> Mulai Belajar
+                    </button>
+                    <button class="btn btn-secondary" onclick="openQuiz()">
+                        <i class="fas fa-brain"></i> Quiz Mode
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <canvas id="heroCanvas" width="500" height="400"></canvas>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll untuk menjelajah</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Chapter Navigation -->
+    <section class="chapter-nav">
+        <div class="container">
+            <h2>Pilih Petualangan Matematikamu</h2>
+            <div class="chapter-grid">
+                <div class="chapter-card" onclick="scrollToSection('spldv')">
+                    <div class="chapter-icon">
+                        <i class="fas fa-equals"></i>
+                    </div>
+                    <h3>Sistem Persamaan Linear</h3>
+                    <p>Pecahkan misteri dengan sistem persamaan</p>
+                </div>
+                <div class="chapter-card" onclick="scrollToSection('kuadrat')">
+                    <div class="chapter-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Fungsi Kuadrat</h3>
+                    <p>Melukis keindahan kurva parabola</p>
+                </div>
+                <div class="chapter-card" onclick="scrollToSection('statistika')">
+                    <div class="chapter-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Statistika</h3>
+                    <p>Mengolah data jadi informasi berguna</p>
+                </div>
+                <div class="chapter-card" onclick="scrollToSection('peluang')">
+                    <div class="chapter-icon">
+                        <i class="fas fa-dice"></i>
+                    </div>
+                    <h3>Peluang</h3>
+                    <p>Menebak berbagai kemungkinan seru</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPLDV Section -->
+    <section id="spldv" class="chapter-section spldv-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-equals"></i> Sistem Persamaan dan Pertidaksamaan Linear</h2>
+                <p>Menjadi Problem Solver Handal untuk Masalah Keseharian</p>
+            </div>
+
+            <div class="content-grid">
+                <div class="theory-section">
+                    <div class="theory-card">
+                        <h3>🔍 Apa itu Persamaan Linear?</h3>
+                        <p>Persamaan linear adalah kalimat matematika yang menggunakan tanda sama dengan (=) dan variabelnya hanya berpangkat satu. Bayangkan seperti neraca yang harus seimbang!</p>
+                        <div class="example-box">
+                            <strong>Contoh:</strong>
+                            <p>2x + y = 10.000 (harga 2 buku + 1 pulpen = Rp10.000)</p>
+                        </div>
+                    </div>
+
+                    <div class="theory-card">
+                        <h3>⚔️ Jurus Menyelesaikan SPLDV</h3>
+                        <div class="method-tabs">
+                            <button class="tab-btn active" onclick="showMethod('substitusi')">Substitusi</button>
+                            <button class="tab-btn" onclick="showMethod('eliminasi')">Eliminasi</button>
+                            <button class="tab-btn" onclick="showMethod('campuran')">Campuran</button>
+                        </div>
+                        <div id="substitusi" class="method-content active">
+                            <h4>Metode Substitusi</h4>
+                            <p>Seperti menukar resep rahasia! Cari nilai satu variabel, lalu "masukkan" ke persamaan lain.</p>
+                            <ol>
+                                <li>Pilih persamaan yang mudah diubah</li>
+                                <li>Nyatakan satu variabel dalam bentuk variabel lain</li>
+                                <li>Substitusikan ke persamaan kedua</li>
+                                <li>Selesaikan untuk mendapat nilai variabel</li>
+                            </ol>
+                        </div>
+                        <div id="eliminasi" class="method-content">
+                            <h4>Metode Eliminasi</h4>
+                            <p>Seperti menghilangkan musuh! Hilangkan satu variabel dengan menjumlah/mengurangi persamaan.</p>
+                            <ol>
+                                <li>Tentukan variabel yang akan dihilangkan</li>
+                                <li>Samakan koefisien variabel tersebut</li>
+                                <li>Jumlahkan atau kurangkan persamaan</li>
+                                <li>Selesaikan persamaan yang tersisa</li>
+                            </ol>
+                        </div>
+                        <div id="campuran" class="method-content">
+                            <h4>Metode Campuran</h4>
+                            <p>Kombinasi terbaik! Gunakan eliminasi untuk satu variabel, lalu substitusi untuk yang lain.</p>
+                            <p>Ini adalah metode yang paling efisien dan sering digunakan dalam praktik.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="interactive-section">
+                    <div class="calculator-container">
+                        <h3><i class="fas fa-calculator"></i> Kalkulator SPLDV Interaktif</h3>
+                        <div class="spldv-calculator">
+                            <div class="equation-inputs">
+                                <div class="equation">
+                                    <label>Persamaan 1:</label>
+                                    <input type="number" id="a1" placeholder="a" step="any"> x + 
+                                    <input type="number" id="b1" placeholder="b" step="any"> y = 
+                                    <input type="number" id="c1" placeholder="c" step="any">
+                                </div>
+                                <div class="equation">
+                                    <label>Persamaan 2:</label>
+                                    <input type="number" id="a2" placeholder="a" step="any"> x + 
+                                    <input type="number" id="b2" placeholder="b" step="any"> y = 
+                                    <input type="number" id="c2" placeholder="c" step="any">
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" onclick="solveSPLDV()">
+                                <i class="fas fa-magic"></i> Selesaikan!
+                            </button>
+                            <div id="spldvResult" class="result-container"></div>
+                        </div>
+                    </div>
+
+                    <div class="visual-container">
+                        <h3><i class="fas fa-chart-line"></i> Visualisasi Grafik</h3>
+                        <div id="spldvGraph" class="graph-container"></div>
+                        <div class="graph-controls">
+                            <button class="btn btn-secondary" onclick="animateIntersection()">
+                                <i class="fas fa-play"></i> Animasi Perpotongan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Problem -->
+            <div class="interactive-problem">
+                <h3>🎯 Latihan Interaktif: Kasus Belanjaan</h3>
+                <div class="problem-scenario">
+                    <p><strong>Skenario:</strong> Sopyan membeli 5 pulpen dan 3 buku seharga Rp12.000. Heri membeli 5 pulpen dan 2 buku seharga Rp10.000. Berapa harga masing-masing?</p>
+                    
+                    <div class="step-by-step" id="stepByStep">
+                        <div class="step" data-step="1">
+                            <h4>Langkah 1: Buat Model Matematika</h4>
+                            <p>Misalkan: x = harga pulpen, y = harga buku</p>
+                            <div class="equation-display">
+                                <span>5x + 3y = 12000</span>
+                                <span>5x + 2y = 10000</span>
+                            </div>
+                        </div>
+                        
+                        <div class="step hidden" data-step="2">
+                            <h4>Langkah 2: Eliminasi Variabel x</h4>
+                            <p>Karena koefisien x sama (5), kita bisa langsung kurangkan:</p>
+                            <div class="calculation">
+                                <span>(5x + 3y) - (5x + 2y) = 12000 - 10000</span>
+                                <span>y = 2000</span>
+                            </div>
+                        </div>
+                        
+                        <div class="step hidden" data-step="3">
+                            <h4>Langkah 3: Substitusi untuk Mencari x</h4>
+                            <p>Masukkan y = 2000 ke persamaan kedua:</p>
+                            <div class="calculation">
+                                <span>5x + 2(2000) = 10000</span>
+                                <span>5x + 4000 = 10000</span>
+                                <span>5x = 6000</span>
+                                <span>x = 1200</span>
+                            </div>
+                        </div>
+                        
+                        <div class="step hidden" data-step="4">
+                            <h4>Langkah 4: Kesimpulan</h4>
+                            <div class="final-answer">
+                                <p><i class="fas fa-check-circle"></i> Harga 1 pulpen = Rp1.200</p>
+                                <p><i class="fas fa-check-circle"></i> Harga 1 buku = Rp2.000</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-controls">
+                        <button class="btn btn-primary" onclick="nextStep()" id="nextStepBtn">
+                            Lanjut ke Langkah 1
+                        </button>
+                        <button class="btn btn-secondary" onclick="resetSteps()" style="display: none;" id="resetBtn">
+                            Ulangi
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fungsi Kuadrat Section -->
+    <section id="kuadrat" class="chapter-section kuadrat-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-chart-line"></i> Fungsi Kuadrat</h2>
+                <p>Melengkung Indah Penuh Makna - Dari Lintasan Bola hingga Arsitektur</p>
+            </div>
+
+            <div class="content-grid">
+                <div class="theory-section">
+                    <div class="theory-card">
+                        <h3>🎯 Apa itu Fungsi Kuadrat?</h3>
+                        <p>Fungsi kuadrat adalah fungsi dengan variabel berpangkat dua (x²). Grafiknya membentuk parabola yang melengkung seperti lintasan bola basket atau bentuk jembatan!</p>
+                        <div class="formula-box">
+                            <strong>Bentuk Umum:</strong>
+                            <div class="math-formula">f(x) = ax² + bx + c</div>
+                            <p>dengan a ≠ 0</p>
+                        </div>
+                    </div>
+
+                    <div class="theory-card">
+                        <h3>📊 Karakteristik Parabola</h3>
+                        <div class="characteristics-grid">
+                            <div class="char-item">
+                                <i class="fas fa-arrow-up text-success"></i>
+                                <h4>Arah Terbuka</h4>
+                                <p>a > 0: ke atas 😊<br>a < 0: ke bawah ☹️</p>
+                            </div>
+                            <div class="char-item">
+                                <i class="fas fa-crosshairs text-warning"></i>
+                                <h4>Titik Puncak</h4>
+                                <p>x = -b/(2a)<br>Titik balik parabola</p>
+                            </div>
+                            <div class="char-item">
+                                <i class="fas fa-arrows-alt-h text-info"></i>
+                                <h4>Sumbu Simetri</h4>
+                                <p>Garis x = -b/(2a)<br>Membagi parabola sama rata</p>
+                            </div>
+                            <div class="char-item">
+                                <i class="fas fa-dot-circle text-danger"></i>
+                                <h4>Diskriminan</h4>
+                                <p>D = b² - 4ac<br>Menentukan titik potong sumbu x</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="interactive-section">
+                    <div class="function-plotter">
+                        <h3><i class="fas fa-paint-brush"></i> Pembuat Parabola Interaktif</h3>
+                        <div class="controls-grid">
+                            <div class="control-group">
+                                <label for="coeff-a">Koefisien a:</label>
+                                <input type="range" id="coeff-a" min="-5" max="5" step="0.1" value="1">
+                                <span id="a-value">1</span>
+                            </div>
+                            <div class="control-group">
+                                <label for="coeff-b">Koefisien b:</label>
+                                <input type="range" id="coeff-b" min="-10" max="10" step="0.1" value="0">
+                                <span id="b-value">0</span>
+                            </div>
+                            <div class="control-group">
+                                <label for="coeff-c">Koefisien c:</label>
+                                <input type="range" id="coeff-c" min="-10" max="10" step="0.1" value="0">
+                                <span id="c-value">0</span>
+                            </div>
+                        </div>
+                        
+                        <div id="parabolaGraph" class="graph-container"></div>
+                        
+                        <div class="parabola-info" id="parabolaInfo">
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <strong>Persamaan:</strong>
+                                    <span id="equation">f(x) = x²</span>
+                                </div>
+                                <div class="info-item">
+                                    <strong>Titik Puncak:</strong>
+                                    <span id="vertex">(0, 0)</span>
+                                </div>
+                                <div class="info-item">
+                                    <strong>Sumbu Simetri:</strong>
+                                    <span id="axis">x = 0</span>
+                                </div>
+                                <div class="info-item">
+                                    <strong>Diskriminan:</strong>
+                                    <span id="discriminant">D = 0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="application-simulator">
+                        <h3><i class="fas fa-basketball-ball"></i> Simulator Lintasan Bola</h3>
+                        <div class="trajectory-controls">
+                            <label for="initial-velocity">Kecepatan Awal (m/s):</label>
+                            <input type="range" id="initial-velocity" min="10" max="50" value="30">
+                            <span id="velocity-value">30</span>
+                            
+                            <label for="launch-angle">Sudut Peluncuran (°):</label>
+                            <input type="range" id="launch-angle" min="15" max="75" value="45">
+                            <span id="angle-value">45</span>
+                            
+                            <button class="btn btn-primary" onclick="launchBall()">
+                                <i class="fas fa-rocket"></i> Lempar Bola!
+                            </button>
+                        </div>
+                        
+                        <canvas id="trajectoryCanvas" width="600" height="300"></canvas>
+                        
+                        <div class="trajectory-info" id="trajectoryInfo">
+                            <p><strong>Jarak Maksimum:</strong> <span id="maxRange">0</span> m</p>
+                            <p><strong>Tinggi Maksimum:</strong> <span id="maxHeight">0</span> m</p>
+                            <p><strong>Waktu Terbang:</strong> <span id="flightTime">0</span> s</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quadratic Builder -->
+            <div class="quadratic-builder">
+                <h3>🏗️ Pembangun Persamaan Kuadrat</h3>
+                <div class="builder-tabs">
+                    <button class="tab-btn active" onclick="showBuilder('vertex')">Dari Titik Puncak</button>
+                    <button class="tab-btn" onclick="showBuilder('roots')">Dari Akar-akar</button>
+                    <button class="tab-btn" onclick="showBuilder('points')">Dari 3 Titik</button>
+                </div>
+                
+                <div id="vertex-builder" class="builder-content active">
+                    <h4>Masukkan Titik Puncak dan Satu Titik Lain</h4>
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label>Titik Puncak:</label>
+                            <input type="number" id="vertex-x" placeholder="x" step="any">
+                            <input type="number" id="vertex-y" placeholder="y" step="any">
+                        </div>
+                        <div class="input-group">
+                            <label>Titik Lain:</label>
+                            <input type="number" id="point-x" placeholder="x" step="any">
+                            <input type="number" id="point-y" placeholder="y" step="any">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="buildFromVertex()">Buat Persamaan</button>
+                </div>
+                
+                <div id="roots-builder" class="builder-content">
+                    <h4>Masukkan Akar-akar dan Satu Titik</h4>
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label>Akar 1:</label>
+                            <input type="number" id="root1" placeholder="x₁" step="any">
+                        </div>
+                        <div class="input-group">
+                            <label>Akar 2:</label>
+                            <input type="number" id="root2" placeholder="x₂" step="any">
+                        </div>
+                        <div class="input-group">
+                            <label>Titik (x,y):</label>
+                            <input type="number" id="root-point-x" placeholder="x" step="any">
+                            <input type="number" id="root-point-y" placeholder="y" step="any">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="buildFromRoots()">Buat Persamaan</button>
+                </div>
+                
+                <div id="points-builder" class="builder-content">
+                    <h4>Masukkan 3 Titik Sembarang</h4>
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label>Titik 1:</label>
+                            <input type="number" id="p1-x" placeholder="x₁" step="any">
+                            <input type="number" id="p1-y" placeholder="y₁" step="any">
+                        </div>
+                        <div class="input-group">
+                            <label>Titik 2:</label>
+                            <input type="number" id="p2-x" placeholder="x₂" step="any">
+                            <input type="number" id="p2-y" placeholder="y₂" step="any">
+                        </div>
+                        <div class="input-group">
+                            <label>Titik 3:</label>
+                            <input type="number" id="p3-x" placeholder="x₃" step="any">
+                            <input type="number" id="p3-y" placeholder="y₃" step="any">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="buildFromThreePoints()">Buat Persamaan</button>
+                </div>
+                
+                <div id="builderResult" class="result-container"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistika Section -->
+    <section id="statistika" class="chapter-section statistika-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-chart-bar"></i> Statistika</h2>
+                <p>Mengolah Data, Mengungkap Fakta - Jadi Detektif Data yang Handal!</p>
+            </div>
+
+            <div class="content-grid">
+                <div class="theory-section">
+                    <div class="theory-card">
+                        <h3>📊 Apa itu Statistika?</h3>
+                        <p>Statistika adalah ilmu yang membantu kita "mengobrol" dengan data! Dari angka-angka acak menjadi informasi bermakna yang bisa membantu pengambilan keputusan.</p>
+                        <div class="stats-process">
+                            <div class="process-step">
+                                <i class="fas fa-search"></i>
+                                <span>Kumpulkan Data</span>
+                            </div>
+                            <div class="process-arrow">→</div>
+                            <div class="process-step">
+                                <i class="fas fa-sort"></i>
+                                <span>Olah & Atur</span>
+                            </div>
+                            <div class="process-arrow">→</div>
+                            <div class="process-step">
+                                <i class="fas fa-chart-pie"></i>
+                                <span>Sajikan</span>
+                            </div>
+                            <div class="process-arrow">→</div>
+                            <div class="process-step">
+                                <i class="fas fa-brain"></i>
+                                <span>Analisis</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="theory-card">
+                        <h3>📈 Ukuran Pemusatan</h3>
+                        <div class="measures-grid">
+                            <div class="measure-item">
+                                <i class="fas fa-calculator text-primary"></i>
+                                <h4>Mean (Rata-rata)</h4>
+                                <p>Jumlah semua data dibagi banyak data</p>
+                                <div class="formula">x̄ = Σxi / n</div>
+                            </div>
+                            <div class="measure-item">
+                                <i class="fas fa-arrows-alt-v text-success"></i>
+                                <h4>Median (Nilai Tengah)</h4>
+                                <p>Nilai yang berada di tengah setelah diurutkan</p>
+                                <div class="formula">Posisi tengah data</div>
+                            </div>
+                            <div class="measure-item">
+                                <i class="fas fa-star text-warning"></i>
+                                <h4>Modus (Nilai Terbanyak)</h4>
+                                <p>Nilai yang paling sering muncul</p>
+                                <div class="formula">Frekuensi tertinggi</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="interactive-section">
+                    <div class="data-analyzer">
+                        <h3><i class="fas fa-microscope"></i> Analisis Data Interaktif</h3>
+                        <div class="data-input">
+                            <label for="dataInput">Masukkan data (pisahkan dengan koma):</label>
+                            <textarea id="dataInput" placeholder="Contoh: 7, 8, 6, 9, 7, 5, 8, 6, 9, 7" rows="3"></textarea>
+                            <button class="btn btn-primary" onclick="analyzeData()">
+                                <i class="fas fa-chart-line"></i> Analisis!
+                            </button>
+                        </div>
+                        
+                        <div id="dataResults" class="analysis-results"></div>
+                        
+                        <div class="chart-container">
+                            <div id="dataVisualization"></div>
+                        </div>
+                    </div>
+
+                    <div class="distribution-generator">
+                        <h3><i class="fas fa-random"></i> Generator Distribusi</h3>
+                        <div class="generator-controls">
+                            <div class="control-group">
+                                <label>Jenis Distribusi:</label>
+                                <select id="distributionType">
+                                    <option value="normal">Normal</option>
+                                    <option value="uniform">Seragam</option>
+                                    <option value="exponential">Eksponensial</option>
+                                </select>
+                            </div>
+                            <div class="control-group">
+                                <label>Jumlah Data:</label>
+                                <input type="range" id="sampleSize" min="10" max="1000" value="100">
+                                <span id="sampleSizeValue">100</span>
+                            </div>
+                            <button class="btn btn-primary" onclick="generateDistribution()">
+                                <i class="fas fa-dice"></i> Generate Data
+                            </button>
+                        </div>
+                        
+                        <div id="distributionChart"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Diagram Creator -->
+            <div class="diagram-creator">
+                <h3>🎨 Pembuat Diagram Interaktif</h3>
+                <div class="diagram-tabs">
+                    <button class="tab-btn active" onclick="showDiagram('bar')">Diagram Batang</button>
+                    <button class="tab-btn" onclick="showDiagram('pie')">Diagram Lingkaran</button>
+                    <button class="tab-btn" onclick="showDiagram('line')">Diagram Garis</button>
+                </div>
+                
+                <div class="diagram-input">
+                    <div class="input-section">
+                        <h4>Input Data:</h4>
+                        <div id="diagramInputs">
+                            <div class="input-pair">
+                                <input type="text" placeholder="Label" class="label-input">
+                                <input type="number" placeholder="Nilai" class="value-input" step="any">
+                                <button class="btn-remove" onclick="removeInput(this)">×</button>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary" onclick="addInput()">+ Tambah Data</button>
+                        <button class="btn btn-primary" onclick="createDiagram()">Buat Diagram</button>
+                    </div>
+                </div>
+                
+                <div id="customDiagram" class="custom-diagram"></div>
+            </div>
+
+            <!-- Statistics Calculator -->
+            <div class="stats-calculator">
+                <h3>🧮 Kalkulator Statistik Lengkap</h3>
+                <div class="calc-grid">
+                    <div class="calc-section">
+                        <h4>Ukuran Pemusatan</h4>
+                        <div class="calc-results" id="centralTendency">
+                            <div class="result-item">
+                                <span class="label">Mean:</span>
+                                <span class="value" id="meanValue">-</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Median:</span>
+                                <span class="value" id="medianValue">-</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Modus:</span>
+                                <span class="value" id="modusValue">-</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="calc-section">
+                        <h4>Ukuran Penyebaran</h4>
+                        <div class="calc-results" id="dispersion">
+                            <div class="result-item">
+                                <span class="label">Range:</span>
+                                <span class="value" id="rangeValue">-</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Varian:</span>
+                                <span class="value" id="varianceValue">-</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Simpangan Baku:</span>
+                                <span class="value" id="stdDevValue">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Peluang Section -->
+    <section id="peluang" class="chapter-section peluang-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-dice"></i> Peluang</h2>
+                <p>Menebak Kemungkinan, Merencanakan Masa Depan - Jadi Peramal Matematika!</p>
+            </div>
+
+            <div class="content-grid">
+                <div class="theory-section">
+                    <div class="theory-card">
+                        <h3>🎲 Apa itu Peluang?</h3>
+                        <p>Peluang adalah cara mengukur seberapa besar kemungkinan suatu kejadian akan terjadi. Nilainya selalu antara 0 (mustahil) dan 1 (pasti terjadi).</p>
+                        <div class="probability-scale">
+                            <div class="scale">
+                                <div class="scale-point" style="left: 0%">
+                                    <span>0</span>
+                                    <label>Mustahil</label>
+                                </div>
+                                <div class="scale-point" style="left: 25%">
+                                    <span>0.25</span>
+                                    <label>Jarang</label>
+                                </div>
+                                <div class="scale-point" style="left: 50%">
+                                    <span>0.5</span>
+                                    <label>Mungkin</label>
+                                </div>
+                                <div class="scale-point" style="left: 75%">
+                                    <span>0.75</span>
+                                    <label>Sering</label>
+                                </div>
+                                <div class="scale-point" style="left: 100%">
+                                    <span>1</span>
+                                    <label>Pasti</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="formula-box">
+                            <strong>Rumus Dasar:</strong>
+                            <div class="math-formula">P(A) = n(A) / n(S)</div>
+                            <p>n(A) = banyak kejadian yang diharapkan<br>n(S) = banyak semua kemungkinan</p>
+                        </div>
+                    </div>
+
+                    <div class="theory-card">
+                        <h3>🔢 Kaidah Pencacahan</h3>
+                        <div class="counting-methods">
+                            <div class="method">
+                                <i class="fas fa-plus text-success"></i>
+                                <h4>Aturan Penjumlahan</h4>
+                                <p>Untuk kejadian yang tidak bisa terjadi bersamaan</p>
+                            </div>
+                            <div class="method">
+                                <i class="fas fa-times text-info"></i>
+                                <h4>Aturan Perkalian</h4>
+                                <p>Untuk kejadian yang berurutan/bertahap</p>
+                            </div>
+                            <div class="method">
+                                <i class="fas fa-sort text-warning"></i>
+                                <h4>Permutasi</h4>
+                                <p>Susunan dengan memperhatikan urutan</p>
+                            </div>
+                            <div class="method">
+                                <i class="fas fa-layer-group text-danger"></i>
+                                <h4>Kombinasi</h4>
+                                <p>Pilihan tanpa memperhatikan urutan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="interactive-section">
+                    <div class="probability-simulator">
+                        <h3><i class="fas fa-gamepad"></i> Simulator Peluang</h3>
+                        <div class="simulator-tabs">
+                            <button class="tab-btn active" onclick="showSimulator('coin')">Koin</button>
+                            <button class="tab-btn" onclick="showSimulator('dice')">Dadu</button>
+                            <button class="tab-btn" onclick="showSimulator('card')">Kartu</button>
+                            <button class="tab-btn" onclick="showSimulator('custom')">Kustom</button>
+                        </div>
+                        
+                        <div id="coin-simulator" class="simulator-content active">
+                            <div class="coin-container">
+                                <div class="coin" id="coin">
+                                    <div class="coin-side heads">👑</div>
+                                    <div class="coin-side tails">🔄</div>
+                                </div>
+                                <button class="btn btn-primary" onclick="flipCoin()">Lempar Koin!</button>
+                            </div>
+                            <div class="results" id="coinResults">
+                                <div class="result-stat">
+                                    <span>Angka:</span>
+                                    <span id="headsCount">0</span>
+                                    <span>(<span id="headsPercent">0</span>%)</span>
+                                </div>
+                                <div class="result-stat">
+                                    <span>Gambar:</span>
+                                    <span id="tailsCount">0</span>
+                                    <span>(<span id="tailsPercent">0</span>%)</span>
+                                </div>
+                                <div class="result-stat">
+                                    <span>Total Lemparan:</span>
+                                    <span id="totalFlips">0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="dice-simulator" class="simulator-content">
+                            <div class="dice-container">
+                                <div class="dice" id="dice">
+                                    <div class="dice-face">⚀</div>
+                                </div>
+                                <button class="btn btn-primary" onclick="rollDice()">Lempar Dadu!</button>
+                            </div>
+                            <div class="dice-stats" id="diceStats">
+                                <canvas id="diceChart" width="400" height="200"></canvas>
+                            </div>
+                        </div>
+                        
+                        <div id="card-simulator" class="simulator-content">
+                            <div class="card-deck">
+                                <div class="deck-controls">
+                                    <button class="btn btn-primary" onclick="drawCard()">Ambil Kartu</button>
+                                    <button class="btn btn-secondary" onclick="resetDeck()">Reset Deck</button>
+                                </div>
+                                <div class="drawn-card" id="drawnCard">
+                                    <span>?</span>
+                                </div>
+                                <div class="deck-info">
+                                    <p>Kartu tersisa: <span id="cardsLeft">52</span></p>
+                                    <p>Kartu ditarik: <span id="cardsDrawn">0</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="custom-simulator" class="simulator-content">
+                            <div class="custom-setup">
+                                <h4>Buat Eksperimen Sendiri</h4>
+                                <div class="outcome-inputs" id="outcomeInputs">
+                                    <div class="outcome-input">
+                                        <input type="text" placeholder="Hasil 1" class="outcome-name">
+                                        <input type="number" placeholder="Bobot" value="1" class="outcome-weight">
+                                        <button class="btn-remove" onclick="removeOutcome(this)">×</button>
+                                    </div>
+                                </div>
+                                <button class="btn btn-secondary" onclick="addOutcome()">+ Tambah Hasil</button>
+                                <button class="btn btn-primary" onclick="runCustomExperiment()">Jalankan Eksperimen</button>
+                            </div>
+                            <div id="customResults" class="custom-results"></div>
+                        </div>
+                    </div>
+
+                    <div class="probability-calculator">
+                        <h3><i class="fas fa-calculator"></i> Kalkulator Peluang</h3>
+                        <div class="calc-tabs">
+                            <button class="tab-btn active" onclick="showCalc('basic')">Dasar</button>
+                            <button class="tab-btn" onclick="showCalc('permutation')">Permutasi</button>
+                            <button class="tab-btn" onclick="showCalc('combination')">Kombinasi</button>
+                        </div>
+                        
+                        <div id="basic-calc" class="calc-content active">
+                            <div class="input-group">
+                                <label>Kejadian yang diharapkan n(A):</label>
+                                <input type="number" id="favorable" placeholder="Masukkan n(A)" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label>Total kemungkinan n(S):</label>
+                                <input type="number" id="total" placeholder="Masukkan n(S)" min="1">
+                            </div>
+                            <button class="btn btn-primary" onclick="calculateBasicProbability()">Hitung Peluang</button>
+                            <div id="basicResult" class="calc-result"></div>
+                        </div>
+                        
+                        <div id="permutation-calc" class="calc-content">
+                            <div class="input-group">
+                                <label>n (total objek):</label>
+                                <input type="number" id="perm-n" placeholder="n" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label>r (objek yang dipilih):</label>
+                                <input type="number" id="perm-r" placeholder="r" min="0">
+                            </div>
+                            <button class="btn btn-primary" onclick="calculatePermutation()">Hitung P(n,r)</button>
+                            <div id="permResult" class="calc-result"></div>
+                        </div>
+                        
+                        <div id="combination-calc" class="calc-content">
+                            <div class="input-group">
+                                <label>n (total objek):</label>
+                                <input type="number" id="comb-n" placeholder="n" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label>r (objek yang dipilih):</label>
+                                <input type="number" id="comb-r" placeholder="r" min="0">
+                            </div>
+                            <button class="btn btn-primary" onclick="calculateCombination()">Hitung C(n,r)</button>
+                            <div id="combResult" class="calc-result"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Probability Games -->
+            <div class="probability-games">
+                <h3>🎮 Game Peluang Interaktif</h3>
+                <div class="games-grid">
+                    <div class="game-card" onclick="openGame('monty-hall')">
+                        <i class="fas fa-door-open"></i>
+                        <h4>Monty Hall Problem</h4>
+                        <p>Paradoks terkenal tentang probabilitas dan strategi optimal</p>
+                    </div>
+                    <div class="game-card" onclick="openGame('birthday-paradox')">
+                        <i class="fas fa-birthday-cake"></i>
+                        <h4>Birthday Paradox</h4>
+                        <p>Mengapa peluang ulang tahun sama lebih tinggi dari yang kita kira?</p>
+                    </div>
+                    <div class="game-card" onclick="openGame('lottery-simulator')">
+                        <i class="fas fa-ticket-alt"></i>
+                        <h4>Simulator Lotere</h4>
+                        <p>Pelajari mengapa lotere bukanlah investasi yang baik</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Modal -->
+    <div id="quizModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-brain"></i> Quiz Matematika</h2>
+                <span class="close" onclick="closeQuiz()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="quiz-progress">
+                    <div class="progress">
+                        <div class="progress-fill" id="quizProgress"></div>
+                    </div>
+                    <span id="questionNumber">1 / 10</span>
+                </div>
+                
+                <div class="question-container">
+                    <h3 id="questionText">Loading...</h3>
+                    <div class="answers" id="answersContainer">
+                        <!-- Answers will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="quiz-controls">
+                    <button class="btn btn-secondary" onclick="previousQuestion()" id="prevBtn" disabled>Sebelumnya</button>
+                    <button class="btn btn-primary" onclick="nextQuestion()" id="nextBtn">Selanjutnya</button>
+                    <button class="btn btn-success" onclick="finishQuiz()" id="finishBtn" style="display: none;">Selesai</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Modal -->
+    <div id="gameModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="gameTitle">Game</h2>
+                <span class="close" onclick="closeGame()">&times;</span>
+            </div>
+            <div class="modal-body" id="gameContent">
+                <!-- Game content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-calculator"></i> MathFun</h3>
+                    <p>Platform pembelajaran matematika interaktif untuk siswa SMA yang ingin belajar dengan cara yang menyenangkan dan efektif.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Materi</h4>
+                    <ul>
+                        <li><a href="#spldv">Sistem Persamaan Linear</a></li>
+                        <li><a href="#kuadrat">Fungsi Kuadrat</a></li>
+                        <li><a href="#statistika">Statistika</a></li>
+                        <li><a href="#peluang">Peluang</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Tools</h4>
+                    <ul>
+                        <li><a href="#spldv">Kalkulator SPLDV</a></li>
+                        <li><a href="#kuadrat">Pembuat Parabola</a></li>
+                        <li><a href="#statistika">Analisis Data</a></li>
+                        <li><a href="#peluang">Simulator Peluang</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Kontak</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MathFun. Dibuat dengan ❤️ untuk pembelajaran yang lebih baik.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
